@@ -3,11 +3,11 @@ from os import system
 from replit import audio
 
 main_message = """
-+: volume up
--: volume down
-k: add loop
-j: remove loop
-<space>: play/pause
++: skaļāk
+-: klusāk
+k: pievienot loop
+j: izdzēst loop
+<space>: play/pauze
 """
 
 def show_status(source):
@@ -16,10 +16,10 @@ def show_status(source):
     vbar = '|' * int(source.volume * 20)
     vperc = int(source.volume * 100)
     pp = "⏸️" if source.paused else "▶️"
-    print(f"Volume: {vbar}  {vperc}% \n")
-    print(f"Looping {source.loops_remaining} time(s)")
-    print(f"Time remaining: {source.get_remaining()}")
-    print(f"Playing: {pp}")
+    print(f"Skaļums: {vbar}  {vperc}% \n")
+    print(f"Looping {source.loops_remaining} reizes")
+    print(f"Atlikušais laiks: {source.get_remaining()}")
+    print(f"Spelē: {pp}")
     print(main_message)
 
 def main():
@@ -28,7 +28,7 @@ def main():
     show_status(source)
 
     while True:
-        choice = input("Enter command: ")
+        choice = input("Ievadi komandi: ")
         if choice == '+':
             source.volume += 0.1
         elif choice == '-':
